@@ -1,0 +1,13 @@
+<tr>
+    <td><img src="<%= seguito.immagine_serie%>" class="copertine"></td>
+    <td><%= seguito.titolo_serie %></td>
+    <td><%= seguito.descrizione_serie %></td>
+    <td><%= seguito.categoria %></td>
+    <!--<td><%= seguito.contenuto %></td>-->
+    <td>
+        <form action="/visualizza-episodi" method="POST">
+          <input type="hidden" name="id" value="<%= seguito.id_serie %>">
+          <button type="submit" class="btn btn-info">Visualizza episodi</button>
+        </form>
+    </td>
+</tr>

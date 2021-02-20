@@ -1,0 +1,18 @@
+<!--<td><%= commento.id %></td>-->
+<tr>
+<!--<td><%= commento.autore %></td>-->
+<td><%= commento.contenuto %></td>
+
+<!--CONTROLLO SE L'ID DELL'AUTORE è UGUALE A QUELLO DELLA PERSONA LOGGATA-->
+<!--Bottone elimina commento-->
+<% if (utente == commento.autore) { %>
+<td>
+    <form action="/elimina-commento" method="POST">
+        <input type="hidden" name="idcommento" value="<%= commento.idc %>">
+        <input type="hidden" name="idepisodio" value="<%= commento.ide %>">
+        <input type="hidden" name="autore" value="<%= commento.autore %>">
+        <button type="submit" class="btn btn-danger">Elimina</button>
+    </form>
+</td>
+</tr>
+<% } %>

@@ -1,0 +1,56 @@
+<%- include('header', {title, active: 'Modifica episodi'}); -%>
+<% episodi.forEach((episodio) => { %>
+<main class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-8 mx-auto">
+          <form method="POST" action="/gestione/aggiornamento-episodi" class="col-6 mx-auto">   
+            <div class="form-group">
+              <label for="id_episodio"></label>
+              <input type="hidden" name="id_episodio" class="form-control" value="<%= episodio.id %>" />
+            </div>
+
+            <!--L'audio per poter essere modificato necessita di un form di upload di un nuovo file-->
+            <!--<div class="form-group">
+                <label for="audio">Audio</label>
+                <input type="text" name="audio" class="form-control" value="<%= episodio.audio %>" />
+            </div>-->
+
+            <div class="form-group">
+              <label for="titolo_episodio">Titolo</label>
+              <input type="text" name="titolo_episodio" class="form-control" value="<%= episodio.titolo %>" required />
+            </div>
+        
+            <div class="form-group">
+              <label for="descrizione_episodio">Descrizione</label>
+              <input type="text" name="descrizione_episodio" class="form-control" value="<%= episodio.descrizione %>" required />
+            </div>
+
+            <!--Se lascio modificare la data potrebbe non essere leggibile da moment js-->
+            <div class="form-group">
+                <label for="data">Data</label>
+                <input type="text" name="data" class="form-control" value="<%= episodio.data %>" placeholder="YYYY-MM-DD" required />
+            </div>
+
+            <div class="form-group">
+                <label for="sponsor">Sponsor</label>
+                <input type="text" name="sponsor" class="form-control" value="<%= episodio.sponsor %>" required />
+            </div>
+
+            <div class="form-group">
+                <label for="costo">Costo</label>
+                <input type="text" name="costo" class="form-control" value="<%= episodio.costo %>" required />
+            </div>
+
+            <div class="form-group">
+                <label for="serie"></label>
+                <input type="hidden" name="serie" class="form-control" value="<%= episodio.serie %>" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Modifica l'episodio</button>
+          </form>
+        </div>
+    </div>
+</main>
+<% }); %>
+
+<%- include('footer'); -%>

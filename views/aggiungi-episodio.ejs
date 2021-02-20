@@ -1,0 +1,53 @@
+<%- include('header', {title, active: 'Aggiungi Episodio'}); -%>
+
+<main class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-8 mx-auto">
+          <form method="POST" action="/gestione/episodio-aggiunto" class="col-6 mx-auto" encType="multipart/form-data">            
+            <!--<div class="form-group">
+                <label for="audio">Audio</label>
+                <input type="text" name="audio" class="form-control" required />
+            </div>-->
+            <div class="form-group">
+                <label for="audio">Audio</label>
+                <br>
+                <input type="file" name="audio" accept="audio/*" required />
+            </div>
+
+            <div class="form-group">
+              <label for="titolo">Titolo Episodio</label>
+              <input type="text" name="titolo" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <label for="descrizione">Descrizione Episodio</label>
+                <input type="text" name="descrizione" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <label for="data">Data</label>
+                <input type="text" name="data" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <label for="sponsor">Sponsor</label>
+                <input type="text" name="sponsor" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="costo">Costo</label>
+                <input type="text" name="costo" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <label for="serie"></label>
+                <input type="hidden" name="serie" class="form-control" value="<%= params %>" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Aggiungi Episodio</button>
+          </form>
+        </div>
+    </div>
+</main>
+
+<%- include('footer'); -%>

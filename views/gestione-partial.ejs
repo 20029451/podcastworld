@@ -1,0 +1,22 @@
+<tr>
+    <td><img src="<%= serie.copertina %>" class="copertine"></td>
+    <td><%= serie.titolo %></td>
+    <td><%= serie.descrizione %></td>
+    <td><%= serie.categoria %></td>
+    
+    <!--Bottone per modificare la serie-->
+    <td>
+        <form action="/gestione/modifica" method="POST">
+            <input type="hidden" name="id" value="<%= serie.id %>">
+            <button type="submit" class="btn btn-primary">Modifica serie ed episodi</button>
+        </form>
+    </td>
+
+    <!--Bottone per inviare l'id della serie da eliminare-->
+    <td>
+        <form action="/gestione/rimozione" method="POST">
+            <input type="hidden" name="id" value="<%= serie.id %>">
+            <button type="submit" class="btn btn-danger">Elimina Serie</button>
+        </form>
+    </td>
+</tr>

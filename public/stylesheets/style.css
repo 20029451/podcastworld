@@ -1,0 +1,44 @@
+#bottoneserie{
+    position: fixed;
+    right: 2%;
+    bottom: 4%;
+    border-radius: 50%;
+}
+
+#bottoneepisodio{
+    position: fixed;
+    right: 2%;
+    bottom: 4%;
+    border-radius: 50%;
+}
+
+/*Rimpiazzabili dall'ejs*/
+/*
+.visible{
+    display: block;
+}
+
+.invisible{
+    display: none;
+}*/
+
+.copertine{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    height: 150px;
+}
+
+/*Non è il massimo. DA MODIFICARE*/
+.form-select{
+    display: block;
+    margin-left: 2%;
+    margin-right: 0%;
+    border-radius: 9%;
+}
+
+
+#search{
+    margin-left: 2%;
+}

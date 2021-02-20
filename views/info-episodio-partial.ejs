@@ -1,0 +1,49 @@
+<td>
+    <audio controls>
+        <source src="<%= episodio.audio %>">
+    </audio>
+</td>
+<br>
+<br>
+<!--<td><%= episodio.titolo %></td>
+<td><%= episodio.descrizione %></td>
+<td><%= episodio.data %></td>
+<td><%= episodio.sponsor %></td>
+<td><%= episodio.costo %></td>-->
+<% if (user != undefined) { %>
+<!--FORM PER INSERIRE I COMMENTI-->
+<label for="commento"><h3>Inserisci qui il commento che vuoi pubblicare:</h3></label>
+<form class="input-group input-group-lg" action="/pubblica" method="POST">
+    <input type="text" name="commento" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+    <input type="hidden" name="id" class="form-control" value="<%= episodio.id %>">
+    <!--<input type="hidden" name="id" class="form-control" value="<%= episodio.id %>">-->
+    <div class="input-group-append">
+        <button type="submit" class="btn btn-outline-success" id="inputGroup-sizing-lg" value="<%= episodio.id %>">Pubblica</button>
+    </div>
+</form>
+<% } %>
+<main class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <h1>Commenti:</h1>
+            <!--TABELLA COMMENTI-->
+            <%# if(commenti.length > 0) { %>
+            <div class="list-group list-group-flush">
+                <!--Inserire la tabella per farli in forma tabellare-->
+                <table class="table">
+                    <tbody>
+                        <% commenti.forEach((commento) => { %>
+                            <%- include('commenti-partial', {commento}); -%>
+                        <% }); %>
+                    </tbody>
+                  </table>
+                <!--<li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+                <li class="list-group-item">A fourth item</li>
+                <li class="list-group-item">And a fifth one</li>-->
+                </div>
+            <%# } %>
+        </div>
+    </div>
+</main>

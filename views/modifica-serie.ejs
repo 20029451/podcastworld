@@ -1,0 +1,71 @@
+<%- include('header', {title, active: 'Modifica serie'}); -%>
+<% serie.forEach((series) => { %>
+<main class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-8 mx-auto">
+          <form method="POST" action="/gestione/aggiornamento" class="col-6 mx-auto">   
+            <div class="form-group">
+              <label for="id_serie"></label>
+              <input type="hidden" name="id_serie" class="form-control" value="<%= series.id %>" />
+            </div>
+            <div class="form-group">
+              <label for="immagine_serie"></label>
+              <input type="hidden" name="immagine_serie" class="form-control" value="<%= series.copertina %>" />
+            </div>
+            <div class="form-group">
+              <label for="titolo_serie">Titolo</label>
+              <input type="text" name="titolo_serie" class="form-control" value="<%= series.titolo %>" required />
+            </div>
+        
+            <div class="form-group">
+              <label for="descrizione_serie">Descrizione</label>
+              <input type="text" name="descrizione_serie" class="form-control" value="<%= series.descrizione %>" required />
+            </div>
+
+            <div class="form-group">
+                <label for="categoria">Categoria</label>
+                <input type="text" name="categoria" class="form-control" value="<%= series.categoria %>" required />
+            </div>
+
+            <!--<div class="form-group">
+                <label for="immagine_serie">Immagine Serie</label>
+                <input type="text" name="immagine_serie" class="form-control" value="<%= series.copertina %>" required />
+            </div>-->
+
+            <button type="submit" class="btn btn-primary">Modifica Serie</button>
+          </form>
+        </div>
+    </div>
+</main>
+
+<form action="/gestione/aggiungi-episodio" method="POST">
+  <input type="hidden" name="id_serie" value="<%= series.id %>">
+  <button type="submit" class="btn btn-primary" id="bottoneepisodio">+</button>
+</form>
+<% }); %>
+
+<div class="container-fluid mt-5">
+  <div class="row">
+      <div class="col-10 mx-auto">
+        <table class="table">
+          <thead class="thead-primary">
+            <tr>
+              <th>Audio</th>
+              <th>Titolo</th>
+              <th>Descrizione</th>
+              <th>Data</th>
+              <th>Sponsor</th>
+              <th>Costo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% episodi.forEach((episodio) => { %>
+              <%- include('episodi-partial', {episodio}); -%>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+
+<%- include('footer'); -%>

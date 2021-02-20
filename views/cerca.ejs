@@ -1,0 +1,55 @@
+<%- include('header', {title, active: 'Cerca Serie'}); -%>
+<!--Qui ci saranno le cose trovate con le query al database-->
+<% if (serie !== '') { %>
+<main class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-10 mx-auto">
+            <h3>Serie trovate che corrispondono alla ricerca:</h3>
+            <table class="table">
+                <thead class="thead-primary">
+                    <tr>
+                        <th>Copertina</th>
+                        <th>Titolo</th>
+                        <th>Descrizione</th>
+                        <th>Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% serie.forEach((tserie) => { %>
+                        <%- include('cerca-serie-partial', {tserie}); -%>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>    
+</main>
+<% } %>
+
+<% if (episodi !== '') { %>
+<main class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-10 mx-auto">
+            <h3>Episodi trovati che corrispondono alla ricerca:</h3>
+            <table class="table">
+                <thead class="thead-primary">
+                    <tr>
+                        <th>Audio</th>
+                        <th>Titolo</th>
+                        <th>Descrizione</th>
+                        <th>Data</th>
+                        <th>Sponsor</th>
+                        <th>Costo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% episodi.forEach((tepisodio) => { %>
+                        <%- include('cerca-episodi-partial', {tepisodio}); -%>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>    
+</main>
+<% } %>
+
+<%- include('footer'); -%>

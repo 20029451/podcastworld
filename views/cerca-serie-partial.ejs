@@ -1,0 +1,13 @@
+<tr>
+    <td><img src="<%= tserie.immagine_serie %>" class="copertine"></td>
+    <!--<td><%= tserie.id_serie %></td>-->
+    <td><%= tserie.titolo_serie %></td>
+    <td><%= tserie.descrizione_serie %></td>
+    <td><%= tserie.categoria %></td>
+    <td>
+        <form action="/visualizza-episodi" method="POST">
+          <input type="hidden" name="id" value="<%= tserie.id_serie %>">
+          <button type="submit" class="btn btn-info">Visualizza episodi</button>
+        </form>
+    </td>
+</tr>

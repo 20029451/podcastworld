@@ -1,0 +1,15 @@
+<tr>
+  <!--<td><%= tepisodio.id_episodio %></td>-->
+  <!--<td><audio src="<%= tepisodio.audio %>"></audio></td>-->
+  <td><!--<audio src="<%= tepisodio.audio %>"></audio>-->
+      <audio controls>
+        <source src="<%= tepisodio.audio %>" type="audio/mp3">
+      </audio>
+  </td>
+  <td><%= tepisodio.titolo_episodio %></td>
+  <td><%= tepisodio.descrizione_episodio %></td>
+  <td><%= tepisodio.data %></td>
+  <td><%= tepisodio.sponsor %></td>
+  <td><%= tepisodio.costo %></td>
+  <!--<td><%= tepisodio.serie %></td>-->
+</tr>

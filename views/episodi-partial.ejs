@@ -1,0 +1,28 @@
+<tr>
+    <td>
+        <audio controls>
+            <source src="<%= episodio.audio %>">
+        </audio>
+    </td>
+    <td><%= episodio.titolo %></td>
+    <td><%= episodio.descrizione %></td>
+    <td><%= episodio.data %></td>
+    <td><%= episodio.sponsor %></td>
+    <td><%= episodio.costo %></td>
+
+    <!--Bottone per modificare l'episodio-->
+    <td>
+        <form action="/gestione/modifica-episodio" method="POST">
+            <input type="hidden" name="id" value="<%= episodio.id %>">
+            <button type="submit" class="btn btn-primary">Modifica episodio</button>
+        </form>
+    </td>
+
+    <!--Bottone per inviare l'id dell'episodio da eliminare-->
+    <td>
+        <form action="/gestione/rimozione-episodio" method="POST">
+            <input type="hidden" name="id" value="<%= episodio.id %>">
+            <button type="submit" class="btn btn-danger">Elimina episodio</button>
+        </form>
+    </td>
+</tr>

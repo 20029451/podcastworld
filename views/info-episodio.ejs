@@ -1,0 +1,13 @@
+<%- include('header', {title, active: 'info episodio'}); -%>
+
+<main class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <% info.forEach((episodio) => { %>
+                <%- include('info-episodio-partial', {episodio}); -%>
+            <% }); %>
+        </div>
+    </div>
+</main>
+
+<%- include('footer'); -%>

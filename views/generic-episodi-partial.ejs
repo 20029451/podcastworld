@@ -1,0 +1,65 @@
+<tr>
+    <td>
+        <% if(episodio.costo === 0 || episodio.comprato === 'true') { %>
+            <audio controls>
+                <source src="<%= episodio.audio %>">
+            </audio>
+        <% } %>
+    </td>
+    
+    <td><%= episodio.titolo %></td>
+    <td><%= episodio.descrizione %></td>
+    <td><%= episodio.data %></td>
+    <td><%= episodio.sponsor %></td>
+    <td><%= episodio.costo %></td>
+    <!--<td><%= episodio.serie %></td>-->
+    <!--<td><%= episodio.comprato %></td>-->
+
+    <!--Commento.autore not defined ERROR-->
+    <%# if (commento.autore === user || user !== undefined) { %>
+    <% if (loggato && loggato === 'true') { %>
+    <td>
+        <form action="/info-episodio" method="POST">
+            <input type="hidden" name="id" value="<%= episodio.id %>">
+            <button type="submit" class="btn btn-info">Commenta</button>
+        </form>
+    </td>
+    <%# } %>
+    <% } %>
+    <!--<td><%= episodio.episodi_preferiti %></td>-->
+    <% if ((loggato && loggato === 'true' && episodio.costo === 0) || (loggato && loggato === 'true' && episodio.comprato === 'true')) { %> <!--Manca condizione nascondi tasto     && episodio.episodi_preferiti === 'false'-->
+        <td>
+            <form action="/aggiungi-preferito" method="POST">
+                <input type="hidden" name="id" value="<%= episodio.id %>">
+                <input type="hidden" name="serie" value="<%= episodio.serie %>">
+                <button type="submit" class="btn btn-success">Aggiungi preferito</button>
+            </form>
+        </td>
+    <% } %>
+    <% if ((loggato && loggato === 'true' && episodio.costo === 0) || (loggato && loggato === 'true' && episodio.comprato === 'true')) { %> <!--Manca condizione nascondi tasto     && episodio.episodi_preferiti === 'true'-->
+        <td>
+            <form action="/rimuovi-preferito" method="POST">
+                <input type="hidden" name="id" value="<%= episodio.id %>">
+                <input type="hidden" name="serie" value="<%= episodio.serie %>">
+                <button type="submit" class="btn btn-success">Rimuovi preferito</button>
+            </form>
+        </td>
+    <% } %>
+    <% if(episodio.costo !== 0 && loggato === 'true' && episodio.comprato === 'false') { %>
+        <td>
+            <form action="/acquista-episodio" method="POST">
+                <input type="hidden" name="id" value="<%= episodio.id %>">
+                <input type="hidden" name="serie" value="<%= episodio.serie %>">
+                <button type="submit" class="btn btn-success acquista" data-toggle="buttons">Acquista</button>
+            </form>
+        </td>
+    <% } %>
+    <% if(loggato === 'false' && episodio.costo !== 0){ %>
+        <td>
+            <form action="/login" method="GET">
+                <!--<input type="hidden" name="id" value="<%= episodio.id %>">-->
+                <button type="submit" class="btn btn-success acquista" data-toggle="buttons">Acquista</button>
+            </form>
+        </td>
+    <% } %>
+</tr>

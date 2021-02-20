@@ -1,0 +1,26 @@
+<%- include('header', {title, active: 'Seguiti'}); -%>
+
+<main class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-10 mx-auto">
+        <h3>Seguiti:</h3>
+          <table class="table">
+            <thead class="thead-primary">
+                <tr>
+                  <th>Copertina</th>
+                  <th>Titolo</th>
+                  <th>Descrizione</th>
+                  <th>Categoria</th>
+                </tr>
+            </thead>
+            <tbody>
+              <% seguititotali.forEach((seguito) => { %>
+                <%- include('seguiti-partial', {seguito}); -%>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+    </div>
+</main>
+
+<%- include('footer'); -%>

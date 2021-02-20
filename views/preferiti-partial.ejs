@@ -1,0 +1,17 @@
+<tr>
+    <% if(loggato === 'true'){ %>
+    <td>
+        <!--Se è acquistato si deve vedere, sennò deve essere nascosto-->
+        <%# if(preferito.costo === 0){ %>
+        <audio controls>
+            <source src="<%= preferito.audio %>">
+        </audio>
+        <%# } %>
+    </td>
+    <% } %>
+    <td><%= preferito.titolo_episodio %></td>
+    <td><%= preferito.descrizione_episodio %></td>
+    <td><%= preferito.data %></td>
+    <td><%= preferito.sponsor %></td>
+    <td><%= preferito.costo %></td>
+</tr>

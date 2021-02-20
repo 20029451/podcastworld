@@ -1,0 +1,27 @@
+<%- include('header', {title, active: 'I miei podcast'}); -%>
+
+<main class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-10 mx-auto">
+            <table class="table">
+                <thead class="thead-primary">
+                    <tr>
+                        <th>Copertina Serie</th>
+                        <th>Titolo Serie</th>
+                        <th>Descrizione Serie</th>
+                        <th>Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% series.forEach((serie) => { %>
+                        <%- include('gestione-partial', {serie}); -%>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+<a class="btn btn-primary" href="/gestione/aggiungi-serie" role="button" id="bottoneserie">+</a>
+
+<%- include('footer'); -%>

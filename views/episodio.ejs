@@ -1,0 +1,25 @@
+<%- include('header', {title, active: 'episodio'}); -%>
+<main class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-10 mx-auto">
+          <table class="table">
+            <thead class="thead-primary">
+                <tr>
+                    <th>Audio</th>
+                    <th>Titolo</th>
+                    <th>Descrizione</th>
+                    <th>Data</th>
+                    <th>Sponsor</th>
+                    <th>Costo</th>
+                </tr>
+            </thead>
+            <tbody>
+              <% episodi.forEach((episodio) => { %>
+                <%- include('generic-episodi-partial', {episodio}); -%>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+    </div>
+</main>
+<%- include('footer'); -%>

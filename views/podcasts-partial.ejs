@@ -1,0 +1,34 @@
+<tr>
+  <td><img src="<%= podcast.copertina %>" class="copertine"></td>
+  <td><%= podcast.titolo %></td>
+  <td><%= podcast.descrizione %></td>
+  <td><%= podcast.categoria %></td>
+  <!--<td><%= podcast.autore %></td>-->
+  <!--<td><%= podcast.seguito %></td>-->
+  <td><%= podcast.nome %></td>
+  <% if(loggato === 'true') { %>
+    <!--Manca controllo se far vedere uno o l'altro-->
+    <% if(podcast.seguito == [] || podcast.seguito === 'false') { %>
+    <td>
+      <form action="/aggiungi-seguito" method="POST">
+          <input type="hidden" name="id" value="<%= podcast.id %>">
+          <button type="submit" class="btn btn-success">Segui</button>
+      </form>
+    </td>
+    <% } %>
+    <% if(podcast.seguito !== [] && podcast.seguito === 'true') { %>
+    <td>
+      <form action="/rimuovi-seguito" method="POST">
+          <input type="hidden" name="id" value="<%= podcast.id %>">
+          <button type="submit" class="btn btn-danger">Non seguire</button>
+      </form>
+    </td>
+    <% } %>
+  <% } %>
+  <td>
+    <form action="/visualizza-episodi" method="POST">
+      <input type="hidden" name="id" value="<%= podcast.id %>">
+      <button type="submit" class="btn btn-info">Visualizza episodi</button>
+    </form>
+  </td>
+</tr>
