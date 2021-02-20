@@ -1,1 +1,1 @@
-web: start
+web: nodemon www.js
